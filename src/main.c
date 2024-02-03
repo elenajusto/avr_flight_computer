@@ -5,7 +5,7 @@
 /* Header Files */
 #include <avr/io.h>               // Pin definitions for AVR
 #include <util/delay.h>           // Delay functions for AVR
-#include <drivers/i2c.c>          // Functions for I2C
+#include <drivers/i2c.h>          // Functions for I2C
 
 /* Function Prototypes*/
 void read_accelerometer_data();
