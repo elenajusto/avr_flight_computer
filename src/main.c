@@ -6,6 +6,7 @@
 #include <avr/io.h>               // Pin definitions for AVR
 #include <util/delay.h>           // Delay functions for AVR
 #include <drivers/i2c.h>          // Functions for I2C
+#include <drivers/uart.h>         // Drivers for UART
 
 /* Function Prototypes*/
 void read_accelerometer_data();
@@ -15,8 +16,10 @@ int main(void) {
 
     // Initialisation
     i2c_init();                     // Start I2C hardware
+    uart_init();                    // Start UART hardware
 
-    // Turn on status LED
+    // Debug
+    uart_print("Welcome to V1.0 of the Flight Computer :)\r\n");
 
     /* Main Loop */
     while(1) {
