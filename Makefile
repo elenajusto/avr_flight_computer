@@ -1,4 +1,4 @@
-PROGRAM_NAME = blink
+PROGRAM_NAME = main
 SRC_DIR = src
 BUILD_DIR = build
 
@@ -10,7 +10,7 @@ $(BUILD_DIR):
 
 # Compile and build the program for Atmega328P
 $(PROGRAM_NAME): $(BUILD_DIR)
-	avr-gcc -mmcu=atmega328p -Wall -Os -o $(BUILD_DIR)/$(PROGRAM_NAME).elf $(SRC_DIR)/$(PROGRAM_NAME).c
+	avr-gcc -mmcu=atmega328p -Wall -Os -Isrc/drivers -o $(BUILD_DIR)/$(PROGRAM_NAME).elf $(SRC_DIR)/*.c $(SRC_DIR)/drivers/*.c
 	avr-objcopy -j .text -j .data -O ihex $(BUILD_DIR)/$(PROGRAM_NAME).elf $(BUILD_DIR)/$(PROGRAM_NAME).hex
 
 # Upload the built program (hex file) to Atmega328P using USBasp
